@@ -8,13 +8,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
@@ -25,14 +22,16 @@ import com.loc.newsapp.presentation.Dimens.PageIndicatorWidth
 import com.loc.newsapp.presentation.Dimens.mediumPadding2
 import com.loc.newsapp.presentation.common.NewsButton
 import com.loc.newsapp.presentation.common.NewsTextButton
+import com.loc.newsapp.presentation.onboarding.OnBoardingEvent
 import com.loc.newsapp.presentation.onboarding.pages
 import kotlinx.coroutines.launch
-import java.nio.file.WatchEvent
 
 @SuppressLint("RememberReturnType")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+   event: (OnBoardingEvent) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,7 +42,6 @@ fun OnBoardingScreen() {
 
         val buttonState = remember {
             derivedStateOf {
-
                 val isFirstPage = pagerState.currentPage == 0
                 val isLastPage = pagerState.currentPage == pages.size - 1
 
@@ -62,7 +60,7 @@ fun OnBoardingScreen() {
             )
         }
 
-        Spacer(modifier = Modifier.weight(1f)) //takes space not occupied by other composables
+        Spacer(modifier = Modifier.weight(1f)) //takes space not occupied by other composable
 
         Row(
             modifier = Modifier
@@ -99,7 +97,7 @@ fun OnBoardingScreen() {
                     onClick = {
                         scope.launch {
                             if (pagerState.currentPage == pages.size - 1) {
-                                //TODO: Navigate to Home Screen
+                                event(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
@@ -112,5 +110,4 @@ fun OnBoardingScreen() {
         }
         Spacer(modifier = Modifier.weight(0.5f))
     }
-
 }

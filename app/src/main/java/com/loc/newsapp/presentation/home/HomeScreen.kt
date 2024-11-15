@@ -40,7 +40,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
             if(articles.itemCount > 10){
                 articles.itemSnapshotList.items
                     .slice(IntRange(start = 0, endInclusive = 9))
-                    .joinToString(separator = " 🚨 "){it.title}
+                    .joinToString(separator = " 🚨"){it.title}
             } else {
                 ""
             }

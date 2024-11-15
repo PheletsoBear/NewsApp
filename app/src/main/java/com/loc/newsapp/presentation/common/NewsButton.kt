@@ -16,7 +16,10 @@ import com.loc.newsapp.presentation.Dimens.DefaultBtn
 
 
 @Composable
-fun NewsButton(text: String, onClick:() -> Unit){
+fun NewsButton(
+    text: String,
+    onClick:() -> Unit
+){
 
     Button(
         onClick = onClick,
