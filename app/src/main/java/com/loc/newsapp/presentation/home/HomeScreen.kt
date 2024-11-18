@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.loc.newsapp.R
 import com.loc.newsapp.presentation.common.ArticleList
-import com.loc.newsapp.presentation.common.SearhBar
+import com.loc.newsapp.presentation.common.SearchBar
 import com.loc.newsapp.presentation.navigation.Route
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -68,7 +68,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
 
         Spacer(modifier = Modifier.height(mediumPadding1))
 
-        SearhBar(
+        SearchBar(
             modifier = Modifier.padding(horizontal = mediumPadding1),
             text = "",
             readOnly = true,
@@ -103,5 +103,4 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
             }
         )
     }
-
 }

@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.loc.newsapp.presentation.Dimens.mediumPadding1
 import com.loc.newsapp.presentation.common.ArticleList
-import com.loc.newsapp.presentation.common.SearhBar
+import com.loc.newsapp.presentation.common.SearchBar
 import com.loc.newsapp.presentation.navigation.Route
 
 @Composable
@@ -20,6 +20,7 @@ fun SearchScreen(
     event: (SearchEvent) -> Unit,
     navigate: (String) -> Unit
 ){
+
    Column(
         modifier = Modifier
             .padding(
@@ -30,7 +31,7 @@ fun SearchScreen(
             .statusBarsPadding()
             .fillMaxSize()
     ){
-        SearhBar(
+        SearchBar(
             text = state.searchQuery,
             readOnly = false,
             onValueChange = { event(SearchEvent.UpdateSearchQuery(it)) },
@@ -46,6 +47,5 @@ fun SearchScreen(
                onClick = { navigate(Route.DetailsScreen.route) }
            )
        }
-
     }
 }
