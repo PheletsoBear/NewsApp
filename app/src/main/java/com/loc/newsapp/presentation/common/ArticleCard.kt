@@ -54,9 +54,9 @@ fun ArticleCard(
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
             contentScale = ContentScale.Crop,
-            model = ImageRequest.Builder(context).data(article.urlToImage).build(),
-          // .placeholder(R.drawable.onboarding3) // Placeholder for preview mode
-           // .error(R.drawable.onboarding3).build(),// Placeholder for preview mode
+            model = ImageRequest.Builder(context).data(article.urlToImage)
+          .placeholder(R.drawable.placeholder_image) // Placeholder for preview mode and slow internet
+          .error(R.drawable.placeholder_image).build(),// Placeholder for preview mode and slow internet
         contentDescription = null
         )
         Column(
