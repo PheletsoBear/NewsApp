@@ -50,8 +50,6 @@ fun SearchBar(
         MutableInteractionSource()
     }
 
-    var searchQuery by remember { mutableStateOf("") }
-
     val isClicked = interactionSource.collectIsPressedAsState().value
     LaunchedEffect(key1 = isClicked){
         if (isClicked){
@@ -69,12 +67,16 @@ fun SearchBar(
             onValueChange = onValueChange,
             readOnly = readOnly,
             leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_search),
-                    contentDescription = null,
-                    Modifier.size(IconSize),
-                    tint = colorResource(id = R.color.body)
-                )
+                IconButton(
+                    onClick = { onSearch() }
+                ){
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_search),
+                        contentDescription = null,
+                        Modifier.size(IconSize),
+                        tint = colorResource(id = R.color.body)
+                    )
+                }
             },
             placeholder = {
                Text(
