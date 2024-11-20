@@ -2,7 +2,7 @@ package com.loc.newsapp.util
 
 object Constants {
 
-    const val USER_SETTINGS = "userSettings"
+    const val USER_SETTINGS = "userPreference"
     const val APP_ENTRY = "appEntry"
     const val  API_KEY = "bc9b8c26691540bebe6ccfa809525b3d"
     const val  STARTING_PAGE_INDEX = 1
