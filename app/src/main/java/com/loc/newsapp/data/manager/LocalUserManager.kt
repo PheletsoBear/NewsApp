@@ -1,4 +1,4 @@
-package com.loc.newsapp.domain.manager
+package com.loc.newsapp.data.manager
 
 import kotlinx.coroutines.flow.Flow
 

@@ -5,7 +5,7 @@ import com.loc.newsapp.data.manager.LocalManagerImpl
 import com.loc.newsapp.data.remote.NewsApi
 import com.loc.newsapp.data.remote.repository.NewsRepository
 import com.loc.newsapp.data.remote.repository.NewsRepositoryImp
-import com.loc.newsapp.domain.manager.LocalUserManager
+import com.loc.newsapp.data.manager.LocalUserManager
 import com.loc.newsapp.domain.useCases.app_entry.AppEntryUseCases
 import com.loc.newsapp.domain.useCases.app_entry.ReadAppEntry
 import com.loc.newsapp.domain.useCases.app_entry.SaveAppEntry
