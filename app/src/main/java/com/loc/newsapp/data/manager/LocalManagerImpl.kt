@@ -11,7 +11,6 @@ import com.loc.newsapp.util.Constants
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-
 class LocalManagerImpl(
     private val context: Context
 ): LocalUserManager {

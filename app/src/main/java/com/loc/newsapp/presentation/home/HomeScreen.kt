@@ -32,7 +32,10 @@ import com.loc.newsapp.presentation.navigation.Route
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigate: (String) -> Unit
+){
 
     val titles by remember {
 
@@ -71,11 +74,9 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
         SearchBar(
             modifier = Modifier.padding(horizontal = mediumPadding1),
             text = "",
-            readOnly = true,
+            readOnly = false,
             onValueChange = {},
-            onClick =  {
-                navigate(Route.SearchScreen.route)
-            },
+            onClick =  { navigate(Route.SearchScreen.route) },
             onSearch = {}
         )
 
@@ -99,7 +100,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit){
             modifier = Modifier.padding(horizontal = mediumPadding1),
             articles = articles,
             onClick = {
-                navigate(Route.DetailsScreen.route)
+               // navigate(Route.DetailsScreen.route)
             }
         )
     }

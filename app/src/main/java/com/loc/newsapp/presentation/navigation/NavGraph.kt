@@ -20,6 +20,7 @@ import com.loc.newsapp.presentation.navigation.Route.SearchScreen
 import com.loc.newsapp.presentation.onboarding.OnBoardingViewModel
 import com.loc.newsapp.presentation.onboarding.components.OnBoardingScreen
 import com.loc.newsapp.presentation.search.SearchScreen
+import com.loc.newsapp.presentation.search.SearchState
 import com.loc.newsapp.presentation.search.SearchViewModel
 
 
@@ -54,12 +55,32 @@ fun NavGraph(
             route = Route.NewsNavigation.route,
             startDestination = Route.NewsNavigatorScreen.route
         ){
+
             composable(route = Route.NewsNavigatorScreen.route){
 
-                val viewModel: SearchViewModel = hiltViewModel()
-                SearchScreen(state = viewModel.state.value, event = viewModel::onEvent, navigate = {})
-
+                val viewModel: HomeViewModel = hiltViewModel()
+                val articles = viewModel.news.collectAsLazyPagingItems()
+                HomeScreen(
+                    articles = articles,
+                    navigate = { route -> navController.navigate(route)}
+                )
             }
+
+        }
+
+
+        composable(route = SearchScreen.route) {
+           val viewModel: SearchViewModel = hiltViewModel()
+            val state = viewModel.state.value
+
+            SearchScreen(
+                state = state,
+                event = viewModel::onEvent,
+                navigate = {}
+            )
+            
         }
     }
+
+
 }
