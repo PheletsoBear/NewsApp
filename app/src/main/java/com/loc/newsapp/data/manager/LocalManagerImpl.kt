@@ -25,7 +25,7 @@ class LocalManagerImpl(
 
     override fun readAppEntry(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
-            preferences[PreferencesKeys.APP_ENTRY] == true
+            preferences[PreferencesKeys.APP_ENTRY] == true  //checks if the value stored in the datastore is true and if the value is null it will default to null
         }
     }
 }
