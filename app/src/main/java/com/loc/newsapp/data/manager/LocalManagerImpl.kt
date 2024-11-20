@@ -18,8 +18,8 @@ class LocalManagerImpl(
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = Constants.USER_SETTINGS)
 
     override suspend fun saveAppEntry() {
-      context.dataStore.edit {
-         it[PreferencesKeys.APP_ENTRY] = true
+      context.dataStore.edit { preference ->
+         preference[PreferencesKeys.APP_ENTRY] = true
       }
     }
 
